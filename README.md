@@ -6,7 +6,7 @@ The goal is to analyze work patterns, concentration peaks, and behavioral rhythm
 
 ## Features
 
-- Parses Git commit history and extracts timestamps
+- Parses Git commit history and extracts timestamps via Git API
 - Aggregates commits by weekday and hour
 - Renders a customizable heatmap using Seaborn
 - Supports hourly granularity and zero-fill for missing times
@@ -32,14 +32,17 @@ pip install -r requirements.txt
 
 ## Usage
 
-1. Export commit timestamps using:
-
+1. Generate a personal token and give it access to your commits and repositories
+2. Create a folder to store the script and environment variables
+3. Create a .venv file containing the following:
 ```
-git log --pretty=format:"%ad" --date=iso > commits_by_date.txt
+TOKEN = 'your_git_token'
+USERNAME = 'your_git_username'
 ```
-
-2. Load the file and process it into a DataFrame.
-3. Use the Jupyter notebook or script to generate the heatmap.
+3. Download heatmap.py, save it into your folder and run it:
+```
+python3 heatmap.py
+```
 
 ## Example Output
 
