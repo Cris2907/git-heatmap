@@ -1,40 +1,133 @@
+#!/usr/bin/env python
+# coding: utf-8
+
+# # Importing libraries
+
+# In[1]:
+
+
 import pandas as pd
 import csv
 import datetime as dt
 import seaborn as sns
 import os
+import requests
+from datetime import datetime, timezone, timedelta
+
+from dotenv import load_dotenv
+load_dotenv()  # This loads the .env file into environment variables
+
+
+# # API
+
+# In[2]:
+
+
+import requests
+import os
+
+token = os.getenv("TOKEN")  # or hardcode it (not recommended)
+username = os.getenv("USERNAME")  # or hardcode it (not recommended)
+print(token)
+print(username)
+headers = {
+    "Authorization": f"token {token}",
+    "Accept": "application/vnd.github+json"
+}
+
+url = "https://api.github.com/user/repos"
+params = {"per_page": 100, "page": 1}
+
+response = requests.get(url, headers=headers, params=params)
+codespaces = [] 
+if response.status_code == 200:
+    repos = response.json()
+    for repo in repos:
+        codespaces.append({
+            "name": repo["name"],
+            "private": repo["private"],
+            "created_at": repo["created_at"],
+            "updated_at": repo["updated_at"],
+            "pushed_at": repo["pushed_at"],
+            "url": repo["html_url"]
+        })
+else:
+    print("Error:", response.status_code, response.text)
+    
+codespaces = pd.DataFrame(codespaces) 
+
+
+# In[3]:
+
+
+url_template = f"https://api.github.com/repos/{username}/"  
+gmt_offset = timezone(timedelta(hours=-5))  # GMT-5
+
+print(url_template)
+
+
+headers = {
+    "Authorization": f"token {token}",
+    "Accept": "application/vnd.github+json"
+}
 
 
 
-# Import the CSV file into a DataFrame
-with open('commits_by_date.txt', 'r') as in_file:
-    stripped = (line.strip() for line in in_file)
-    lines = (line.split(" ") for line in stripped if line)
-    with open('commits_by_date_processed.csv', 'w') as out_file:
-        writer = csv.writer(out_file)
-        writer.writerow(('date', 'time', 'timezone'))
-        writer.writerows(lines)
+page = 1
+commits = []
+
+for _, codespace in codespaces.iterrows():
+    name = codespace["name"]
+    print(f"\nFetching commits for repo: {name}")
+    
+    page = 1
+    while True:
+        print(f"  Page {page}")
+        url = f"{url_template}{name}/commits"
+        params = {
+            "author": "Cris2907",
+            "per_page": 100,
+            "page": page
+        }
+
+        response = requests.get(url, headers=headers, params=params)
         
-# Read the CSV file into a DataFrame
-commits = pd.read_csv('commits_by_date_processed.csv')
+        if response.status_code != 200:
+            print("  Error:", response.status_code, response.text)
+            break
 
-commits = commits.astype({'date': 'datetime64[ns]', 'time': 'datetime64[ns]', 'timezone': 'string'}, errors='ignore')
-commits['floored_hour'] =commits['time'].dt.floor('H').dt.time
-commits.drop(columns=['time', 'timezone'], inplace=True)
+        data = response.json()
+        if not data:
+            print("  No more commits.")
+            break
 
-commits = commits.groupby(['date', 'floored_hour']).size().reset_index(name='commits')
-commits = commits.rename(columns={'floored_hour': 'time'}, inplace=False)
-commits['date'] =  commits['date'].dt.day_name()
-commits.to_csv('commits_by_date_processed.csv', index=False)
-commits = commits.groupby(['date', 'time']).agg({'commits': 'mean'}).reset_index().rename(columns={'commits': 'avg_commits'})
-commits['time'] = pd.to_datetime(commits['time'], format='%H:%M:%S').dt.strftime('%-I%p')  
+        
+        for commit in data:
+            iso_timestamp = commit["commit"]["author"]["date"]
+            dt_utc = datetime.fromisoformat(iso_timestamp.replace("Z", "+00:00"))
+            dt_local = dt_utc.astimezone(gmt_offset)
+
+            commit_date = dt_local.date()
+            commit_time = dt_local.time()
+
+            commits.append({
+                "repo": name,
+                "date": commit_date,
+                "time": commit_time,
+                "message": commit["commit"]["message"],
+            })
+
+        page += 1
 
 
-commits
-# commits.to_csv('commits_by_date_processed.csv', index=False)
+commits = pd.DataFrame(commits)
+
+commits.to_csv("commits.csv", index=False, quoting=csv.QUOTE_NONNUMERIC)
 
 
+# # Importing Files
 
+# In[4]:
 
 
 hour_order = [
@@ -50,18 +143,63 @@ day_order = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday',
 commits['date'] = pd.Categorical(commits['date'], categories=day_order, ordered=True)
 commits['time'] = pd.Categorical(commits['time'], categories=hour_order, ordered=True)
 
-
-commits.to_csv('commits_by_date_processed.csv', index=False)
-
-
 full_grid = pd.DataFrame(
     [(d, h) for d in day_order for h in hour_order],
     columns=['date', 'time']
 )
 
-full_grid
+full_grid.info()
 
+
+# In[ ]:
+
+
+
+
+
+# In[5]:
+
+
+# Read the CSV file into a DataFrame
+commits = pd.read_csv('commits.csv')
+
+commits = commits.astype({'date': 'datetime64[ns]', 'time': 'datetime64[ns]'}, errors='ignore')
+commits['floored_hour'] =commits['time'].dt.floor('H').dt.time
+commits.drop(columns=['time', 'repo'], inplace=True)
+first_commit = commits['date'].min()
+last_commit = commits['date'].max() 
+print(f"First commit: {first_commit}")
+print(f"Last commit: {last_commit}")
+
+all_dates = pd.date_range(start=first_commit, end=last_commit)
+weekday_counts = all_dates.to_series().dt.day_name().value_counts().to_dict()
+print(weekday_counts)
+commits = commits.groupby(['date', 'floored_hour']).size().reset_index(name='commits')
+commits = commits.rename(columns={'floored_hour': 'time'}, inplace=False)
+commits['date'] =  commits['date'].dt.day_name()
+commits['day_count'] = commits['date'].map(weekday_counts)
+commits['time'] = pd.to_datetime(commits['time'], format='%H:%M:%S').dt.strftime('%-I%p')  
 commits = full_grid.merge(commits, on=['date', 'time'], how='left').fillna(0)
+commits = commits.astype({'date': 'category', 'time': 'category', 'day_count':'int', 'commits':'int'}, errors='ignore')
+# commits = commits.groupby(['date', 'time']).agg({'commits': 'mean'}).reset_index().rename(columns={'commits': 'avg_commits'})
+commits['avg_commits'] = commits['commits'] / commits['day_count']
+commits['avg_commits'] = commits['avg_commits'].fillna(0)
+
+commits.to_csv('commits_by_date_processed.csv', index=False)
+
+# commits.to_csv('commits_by_date_processed.csv', index=False)
+
+
+
+# In[6]:
+
+
+commits.to_csv('commits_by_date_processed.csv', index=False)
+
+
+# In[7]:
+
+
 commits['avg_commits'] = commits['avg_commits'].astype(float)
 
 
@@ -72,7 +210,28 @@ commits['time'] = pd.Categorical(commits['time'], categories=hour_order, ordered
 commits = commits.sort_values(['date', 'time'])
 commits.to_csv('commits_by_date_processed.csv', index=False)
 
+
+# # Plotting data
+
+# In[8]:
+
+
+commits = commits.groupby(['date', 'time'], as_index=False).agg({'avg_commits': 'mean'})
+
+
+# In[9]:
+
+
 commits = commits.pivot(index='date', columns='time', values='avg_commits').fillna(0).astype(float)
+
+
+# In[10]:
+
+
+commits
+
+
+# In[ ]:
 
 
 import matplotlib.pyplot as plt
@@ -89,7 +248,7 @@ plt.ylabel('Day of Week', fontsize=12, labelpad=10)
 sns.heatmap(
     commits,
     annot=True,
-    fmt=".0f",
+    fmt=".1f",
     cmap="YlGnBu",
     linewidths=0.5,
     linecolor='none',
@@ -105,3 +264,10 @@ sns.heatmap(
 
 plt.tight_layout()
 plt.savefig('commit_heatmap.png', dpi=300, bbox_inches='tight')
+plt.show()
+
+
+# In[ ]:
+
+
+

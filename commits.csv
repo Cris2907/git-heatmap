@@ -1,0 +1,200 @@
+"repo","date","time","message"
+"git-heatmap","2025-05-05","03:50:30","Added gitignire file"
+"git-heatmap","2025-05-05","03:49:39","Removed notebook from tracking"
+"git-heatmap","2025-05-05","03:46:11","Added py file and requirements"
+"git-heatmap","2025-05-05","03:41:43","Removed redundant files / udpated images"
+"git-heatmap","2025-05-05","03:39:57","Added README.md"
+"git-heatmap","2025-05-05","03:35:18","[Release] Type: First Release
+
+Details:
+-
+-
+
+Refs: #"
+"mhscol-prod","2025-05-04","18:55:31","[Security] Type: Patched Jinja vulnerability in `jinja2` < 3.1.2
+
+Details:
+-
+-
+
+Refs: #"
+"mhscol-prod","2025-05-04","18:51:17","[Intranet][Shift Tracker] Type: Fixed overtime shifts on today card
+
+Details:
+-
+-
+
+Refs: #"
+"mhscol-prod","2025-05-02","23:46:52","[Intranet][Shift Tracker] Type: Implementing backend logic for comment uploads
+
+Details:
+-
+-
+
+Refs: #"
+"mhscol-prod","2025-05-02","14:34:32","[Intranet][Shift Tracker] Type: Improved the previous shifts modal
+
+Details:
+- Improved UI and transitions
+- Added comments box
+
+Pending:
+- Add a button to delete the comment
+- Wire to backend
+
+Refs: #"
+"mhscol-prod","2025-05-02","02:04:31","[Intranet][Shift Tracker] Type: Added log table to shift details
+
+Details:
+- Implemented log table by default, displaying additional information about the shift.
+- Removed unnecessary buttons
+
+Refs: #"
+"mhscol-prod","2025-05-02","01:38:50","[Intranet][Shift Tracker] Type: Modal for Shift History Redesigned
+
+Details:
+- Updated the shift history modal to be more user friendly
+- Implemented Material Design principles for a cleaner look
+
+Refs: #"
+"mhscol-prod","2025-05-01","18:42:53","[Intranet] Type: Added toast messages template
+
+Details:
+-
+-
+
+Refs: #"
+"mhscol-prod","2025-05-01","18:22:43","[Intranet][Shift Tracker] Type: Improved layaout and added functionality
+
+Details:
+- Lunch and Punch buttons are now visually disabled when the user is not allowed to punch in.
+- Added UX improvements to the shift tracker page.
+
+Refs: #"
+"mhscol-prod","2025-05-01","00:46:32","[Intranet] Type: fix
+
+Details:
+- Update the base-intranet.html template to include the correct path for the CSS file.
+- Removed old JS file reference.
+
+Refs: #"
+"mhscol-prod","2025-05-01","00:42:25","[Intranet] Type: Refactor
+
+Details:
+- Polished the HTML structure of the base-intranet.html template.
+- Improved the readability and maintainability of the code.
+
+Refs: #"
+"mhscol-prod","2025-05-01","00:38:05","[Intranet] Refactor: reenginered dropdowns from sidebar to float independently"
+"mhscol-prod","2025-04-30","22:53:29","[Intranet] Update: sidebar now collapsable"
+"mhscol-prod","2025-04-30","21:42:08","[Intranet] Update: added responsive navbar for mobile"
+"mhscol-prod","2025-04-30","21:33:35","[[Intranet][Shift Tracker] Update: shift progress bars on previous shifts"
+"mhscol-prod","2025-04-30","13:20:33","[[Intranet][Shift Tracker]] Update: css elements on page"
+"mhscol-prod","2025-04-30","21:42:55","Merge pull request #2 from Cris2907/dependabot/pip/h11-0.16.0
+
+Upgrade: Bump h11 from 0.14.0 to 0.16.0"
+"mhscol-prod","2025-04-30","00:21:25","[[Intranet][Shift Tracker]] Update: updated css on disabled punch in button and added custom message"
+"mhscol-prod","2025-04-30","00:03:17","[[Intranet][Shift Tracker] Update: punch in button is now disabled if user is outside schedule range"
+"mhscol-prod","2025-04-29","23:32:49","Update: [shift management] Today card now displays 'tomorrow' if current shift has passed"
+"mhscol-prod","2025-04-29","16:50:05","Update: added manual revision for admin, added needs_revision column on shift logs DB"
+"mhscol-prod","2025-04-29","16:03:50","Update: added live lunch bar"
+"mhscol-prod","2025-04-29","15:20:00","Update: unpunched shifts will be marked as absent automatically"
+"mhscol-prod","2025-04-29","15:17:55","Fix: punch in function will now use current shift and create entries on shift_logs automatically"
+"mhscol-prod","2025-04-28","22:22:30","Update: wiring backend to frontend on shifts db"
+"mhscol-prod","2025-04-27","18:49:11","Update: removed unnecessary files"
+"mhscol-prod","2025-04-26","18:58:39","Update: removed unnecesary files"
+"mhscol-prod","2025-04-25","22:54:23","Update: wiring backend logic to frontend on shifts tab"
+"mhscol-prod","2025-04-24","16:34:41","Fix: improved mobile layout across public website"
+"mhscol-prod","2025-04-24","15:50:22","Fix: adjusted mobile responsivness on home page public"
+"mhscol-prod","2025-04-24","10:29:05","Fix: about images now are correctly aligned"
+"mhscol-prod","2025-04-24","10:16:38","Update: updated JCV picture"
+"mhscol-prod","2025-04-24","10:15:25","Update: updated JCV picture"
+"mhscol-prod","2025-04-24","10:13:13","Update: updated pictures on about tab"
+"mhscol-prod","2025-04-23","16:23:34","Update: improved responsiveness to shift management tab"
+"mhscol-prod","2025-04-23","12:00:16","Update: First version of shift management submitted"
+"mhscol-prod","2025-04-22","15:43:46","Update: created function to pass user data to topbar, easing intranet modularity"
+"mhscol-prod","2025-04-22","14:17:55","Update: updated DC's position"
+"mhscol-prod","2025-04-21","15:42:48","Update: created reusable intranet base for quicker updates across the site"
+"mhscol-prod","2025-04-21","15:09:25","Update: removed unnecessary fields on the profile update tab and corrected design"
+"mhscol-prod","2025-04-21","12:25:34","Update: added Felix and Uldas photos and corrected colors on about us page public"
+"mhscol-prod","2025-04-21","11:59:39","Update: updated icon to .ico and updated reference on base template"
+"mhscol-prod","2025-04-21","11:02:58","Update: added careers tab to module on public site"
+"mhscol-prod","2025-04-21","10:21:22","Update: added logic for no jobs on careers page"
+"mhscol-prod","2025-04-21","09:41:19","Update: created base-public.html and updated index to include it"
+"mhscol-prod","2025-04-20","01:32:27","Update: improvements to home public page design, added CTA button and unified design across website, removed unnecessary legacy code"
+"mhscol-prod","2025-04-19","23:55:15","Update: removed unnecessary files"
+"mhscol-prod","2025-04-18","23:21:43","Update: removed unnecessary files"
+"mhscol-prod","2025-04-17","21:30:34","Cleanup: removed unnecessary files"
+"mhscol-prod","2025-04-16","12:56:35","Update: added character limit on profile update"
+"mhscol-prod","2025-04-16","11:37:51","Update: added cv2 to requirements"
+"mhscol-prod","2025-04-16","11:28:56","Update: added file convertor to webp on pfp uploads"
+"mhscol-prod","2025-04-16","10:43:22","Fix: edit profile form now working correctly"
+"mhscol-prod","2025-04-15","15:03:02","Update: layout update to the intranet, removed topbar and defaulted to expanded sidebar"
+"mhscol-prod","2025-04-14","14:49:31","Fix: Birthdays now displaying correctly on Intranet home page"
+"mhscol-prod","2025-04-14","14:43:48","Update: Intranet dashboard homepage layout update"
+"mhscol-prod","2025-04-14","13:14:35","Refactor DB layer: replaced flask-mysql-connector with mysql-connector-python"
+"mhscol-prod","2025-04-13","23:29:49","Fix: code consistency"
+"mhscol-prod","2025-04-12","23:36:00","Update: code layout improvement"
+"mhscol-prod","2025-04-11","16:55:29","Fix: updated flask route that would crash users that logged into the intranet"
+"mhscol-prod","2025-04-11","15:49:25","Update: added IP logging, improved color schemes globally, improved UI on intranet home. Layout will be updated on upcoming commits"
+"mhscol-prod","2025-04-10","15:44:06","Update: manager display logic on intranet home"
+"mhscol-prod","2025-04-10","14:32:47","Update: Manager name now displaying on intrnate home"
+"mhscol-prod","2025-04-10","13:47:55","Update: Added shift information to landing page of intranet"
+"mhscol-prod","2025-04-10","12:09:16","Update: updated css for sidebar on intranet"
+"mhscol-prod","2025-04-10","12:07:20","Update: replaced fas fa with SVGs on sidebar intranet"
+"mhscol-prod","2025-04-09","16:18:26","Fix: removed typo"
+"mhscol-prod","2025-04-09","16:09:48","Fix: updated DB references in flask"
+"mhscol-prod","2025-04-09","12:47:56","Changes to auth process"
+"mhscol-prod","2025-04-09","12:40:02","Flask fix"
+"mhscol-prod","2025-04-09","10:58:30","Flask fixes"
+"mhscol-prod","2025-04-09","10:23:00","Fixed database connection"
+"mhscol-prod","2025-04-09","10:02:14","Fixed logging and database logic"
+"mhscol-prod","2025-04-08","15:46:40","Added logging per user"
+"mhscol-prod","2025-04-08","15:36:23","Fix to login error"
+"mhscol-prod","2025-04-08","13:19:02","Update: Updated databases and flask to reference them properly"
+"mhscol-prod","2025-04-08","09:16:04","Remove .env.prod.backup from tracking"
+"mhscol-prod","2025-04-07","17:01:30","Add SQL files to .gitignore"
+"mhscol-prod","2025-04-07","16:59:55","Ignore database backups"
+"mhscol-prod","2025-04-07","16:58:05","Renamed DB"
+"mhscol-prod","2025-04-07","14:31:16","Fixed mobile view on public page"
+"mhscol-prod","2025-04-07","14:17:57","Readjusted animation parameters and some css adjustments"
+"mhscol-prod","2025-04-07","14:13:18","Updated hero logic on public page [CSS]"
+"mhscol-prod","2025-04-07","14:11:45","Updated hero logic on public page"
+"mhscol-prod","2025-04-07","13:17:01","Readjusted gsap parameters on home page"
+"mhscol-prod","2025-04-07","13:12:45","Fix: removed unnecesary elements from style.css"
+"mhscol-prod","2025-04-07","13:09:05","Removed transition in images as it affects performance"
+"mhscol-prod","2025-04-07","12:56:48","Commented restriciton line in app.py that wouldnt allow subdomains"
+"mhscol-prod","2025-04-07","12:46:29","Removed conflicting line in app.py"
+"mhscol-prod","2025-04-07","09:18:55","Updated intranet button across public page"
+"mhscol-prod","2025-04-07","09:05:31","Update .gitignore to ignore __pycache__ and shell scripts"
+"mhscol-prod","2025-04-07","08:58:11","Cleaned up tracked __pycache__ and ignored deploy.sh"
+"mhscol-prod","2025-04-04","11:43:55","Fix: CTA Form now correctly displays information on mobile devices"
+"mhscol-prod","2025-04-04","09:54:13","Fixed sidebar menu not showing on mobile view - Public page"
+"mhscol-prod","2025-04-04","09:14:52","Updated images to webp in code to improve loading speeds"
+"mhscol-prod","2025-04-03","16:46:13","🔥 Final sweep: removed ghost .DS_Store from static"
+"mhscol-prod","2025-04-03","16:19:52","🔥 Remove .DS_Store from repo and ignore it forever"
+"mhscol-prod","2025-04-03","16:18:07","chore: ignore .DS_Store once and for all"
+"mhscol-prod","2025-04-03","15:59:23","Chore: ignore .DS_Store from macOS"
+"mhscol-prod","2025-04-03","15:54:12","Improved efficiency to load images on home page and added automatic hero image rotation"
+"mhscol-prod","2025-04-03","15:28:37","Created README.md"
+"mhscol-prod","2025-04-03","14:28:06","Updated sidebar with functional log out button"
+"mhscol-prod","2025-04-03","13:11:51","Fix: add Flask-WTF to requirements"
+"mhscol-prod","2025-04-03","13:03:16","Addeed token injection to logout button on intranet"
+"mhscol-prod","2025-04-03","11:52:09","Testing GET requests on flask logout redirect"
+"mhscol-prod","2025-04-03","10:09:45","Removed vulnerability with older Jinja2 versions"
+"mhscol-prod","2025-04-03","10:06:25","Fix: moved .gitignore to root and removed sensitive files from repo"
+"mhscol-prod","2025-04-03","10:04:58","Fix: moved .gitignore to root and removed sensitive files from repo"
+"mhscol-prod","2025-04-03","10:00:15","Fix: remove venv from version control"
+"mhscol-prod","2025-04-03","09:58:32","Fixing logout error"
+"mhscol-prod","2025-04-03","09:48:18","Removed lingering .env files"
+"mhscol-prod","2025-04-03","09:39:13","Updated logout logic for dashboard in intranet"
+"mhscol-prod","2025-04-02","15:42:00","Removed critical security flaw from app.py"
+"mhscol-prod","2025-04-02","15:31:38","Updated flask logic to get venv files"
+"mhscol-prod","2025-04-02","15:04:10","Removed unnecesary .env files"
+"mhscol-prod","2025-04-02","14:58:36","Testing dev and prod environments"
+"mhscol-prod","2025-04-02","14:45:57","testing active directory online"
+"mhscol-prod","2025-04-02","14:45:04","testing active directory online"
+"mhscol-prod","2025-04-01","15:50:24","Updated dashboard page on intranet (WIP)"
+"mhscol-prod","2025-04-01","14:26:11","Cleanup: removed unintended nested repo"
+"mhscol-prod","2025-04-01","14:20:23","Fix: removed nested repo from tracked files"
+"mhscol-prod","2025-04-01","14:15:00","Rebuild: restored working repo after broken reference issue"
