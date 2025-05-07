@@ -137,7 +137,7 @@ hour_order = [
     '6PM', '7PM', '8PM', '9PM', '10PM', '11PM'
 ]
 
-day_order = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
+day_order = ['Sunday','Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday',]
 
 
 commits['date'] = pd.Categorical(commits['date'], categories=day_order, ordered=True)

@@ -1,4 +1,5 @@
 "repo","date","time","message"
+"git-heatmap","2025-05-06","14:39:55","Updated readme"
 "git-heatmap","2025-05-06","11:08:39","Added GIT API to retrieve all commits and their dates"
 "git-heatmap","2025-05-05","03:50:30","Added gitignire file"
 "git-heatmap","2025-05-05","03:49:39","Removed notebook from tracking"
@@ -12,6 +13,80 @@ Details:
 -
 
 Refs: #"
+"mhscol-prod","2025-05-07","15:28:21","[Intranet] Type: Code Review and Refactor
+
+Refs: #"
+"mhscol-prod","2025-05-07","15:22:25","[Intranet][Shift Uploads] Type: Finalized CSS and HTML for shift uploads
+
+Details:
+- Progressed the design to a more polished state.
+- Started setting up the responsive design.
+
+Refs: #"
+"mhscol-prod","2025-05-07","14:18:01","[Intranet] Type: Bug fix and UI improvements
+
+Details:
+-
+-
+
+Refs: #"
+"mhscol-prod","2025-05-07","11:35:24","[Intranet][Shift Uploads] Type: UI fix
+
+Details:
+- Margin adjusted for 7 days chart container
+
+Refs: #"
+"mhscol-prod","2025-05-07","11:33:11","[Intranet][Shift Uploads] Type: Updated UI added POC
+
+Details:
+- Added line chart for last 7 days attendance
+- Tweaked UI for better user experience
+
+Refs: #"
+"mhscol-prod","2025-05-06","16:39:51","[Intranet][Shift Uploads] Type: Layout and Style Changes
+
+Details:
+- Added pie chart as POC for % of shifts filled
+- Improved responsiveness of the page
+
+Refs: #"
+"mhscol-prod","2025-05-06","16:02:01","[Intranet][Shift Uploads] Type: UX / UI improvements
+
+Details:
+-
+-
+
+Refs: #"
+"mhscol-prod","2025-05-06","15:38:08","[Intranet][Shift Uploads] Type: UI Improvement on the shift upload page
+
+Details:
+- Upload shift button moved to a modal
+- Implemented modal
+
+Refs: #"
+"mhscol-prod","2025-05-06","14:32:04","[Intranet][Shift Uploads] Type: Upload CSV file to database now working
+
+Details:
+- Implemented backend logic to handle CSV file uploads.
+- Added error handling for invalid file formats.
+- Secured file upload process to prevent malicious files.
+
+Refs: #"
+"mhscol-prod","2025-05-06","13:38:58","[Intranet][Shift Uploads] Type: Backend Logic / API / Frontend UI
+
+Details:
+- First revision of the shift upload page with dynamic table loading shifts
+- Wired to backend
+
+Refs: #"
+"mhscol-prod","2025-05-06","12:07:21","[Intranet][Shift Uploads] Type: Created Route
+
+Details:
+- Defined HTML, CSS
+- Updated sidebar to include the new route
+
+Refs: #"
+"mhscol-prod","2025-05-06","12:02:33","[Intranet][Shift Tracker] Fixed DB connection on submit comments function, it now works as expected"
 "mhscol-prod","2025-05-04","18:55:31","[Security] Type: Patched Jinja vulnerability in `jinja2` < 3.1.2
 
 Details:
