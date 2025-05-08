@@ -13,6 +13,23 @@ Details:
 -
 
 Refs: #"
+"mhscol-prod","2025-05-08","13:49:13","[Intranet] Type: Created auto updating script to sync with intranet and Azure AD
+
+Refs: #"
+"mhscol-prod","2025-05-08","11:08:07","Removed csv files tracking"
+"mhscol-prod","2025-05-08","11:07:28","Remove CSV files from Git tracking"
+"mhscol-prod","2025-05-08","11:05:38","[Intranet] Type: Improved security and added active user verification
+
+Details:
+- Updated database to register active users only and prevent unauthorized access.
+
+Refs: #"
+"mhscol-prod","2025-05-07","15:34:28","[Intranet][Public] Type: Fixed Titles on Pages
+
+Details:
+- Removed incorrect titles that were not matching the page content.
+
+Refs: #"
 "mhscol-prod","2025-05-07","15:28:21","[Intranet] Type: Code Review and Refactor
 
 Refs: #"
