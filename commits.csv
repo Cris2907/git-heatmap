@@ -1,4 +1,13 @@
 "repo","date","time","message"
+"git-heatmap","2025-05-08","13:57:39","Minor fixes"
+"git-heatmap","2025-05-08","13:55:45","[Intranet] Type: Minor fixes
+
+Details:
+-
+-
+
+Refs: #"
+"git-heatmap","2025-05-07","15:30:46","Updated day order to start on Sunday and end on Saturday"
 "git-heatmap","2025-05-06","14:39:55","Updated readme"
 "git-heatmap","2025-05-06","11:08:39","Added GIT API to retrieve all commits and their dates"
 "git-heatmap","2025-05-05","03:50:30","Added gitignire file"
@@ -11,6 +20,24 @@
 Details:
 -
 -
+
+Refs: #"
+"mhscol-prod","2025-05-08","15:35:58","[Intranet] Type: Fix
+
+Details:
+- Fixed issue where the download Azure images script was only saving the last result from the loop.
+
+Refs: #"
+"mhscol-prod","2025-05-08","15:17:32","[Intranet] Type: Fixed old db connections
+
+Details:
+-
+-
+
+Refs: #"
+"mhscol-prod","2025-05-08","15:13:50","[Intranet] Type: Create script to fetch and update user images
+
+Details:
 
 Refs: #"
 "mhscol-prod","2025-05-08","13:49:13","[Intranet] Type: Created auto updating script to sync with intranet and Azure AD

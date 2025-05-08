@@ -1,11 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# # Importing libraries
-
-# In[1]:
-
-
 import pandas as pd
 import csv
 import datetime as dt
@@ -16,11 +8,7 @@ from datetime import datetime, timezone, timedelta
 
 from dotenv import load_dotenv
 load_dotenv()  # This loads the .env file into environment variables
-
-
-# # API
-
-# In[2]:
+print("Loading environment variables...")
 
 
 import requests
@@ -56,8 +44,6 @@ else:
     
 codespaces = pd.DataFrame(codespaces) 
 
-
-# In[3]:
 
 
 url_template = f"https://api.github.com/repos/{username}/"  
@@ -125,9 +111,6 @@ commits = pd.DataFrame(commits)
 commits.to_csv("commits.csv", index=False, quoting=csv.QUOTE_NONNUMERIC)
 
 
-# # Importing Files
-
-# In[4]:
 
 
 hour_order = [
@@ -137,7 +120,7 @@ hour_order = [
     '6PM', '7PM', '8PM', '9PM', '10PM', '11PM'
 ]
 
-day_order = ['Sunday','Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday',]
+day_order = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
 
 
 commits['date'] = pd.Categorical(commits['date'], categories=day_order, ordered=True)
@@ -151,13 +134,6 @@ full_grid = pd.DataFrame(
 full_grid.info()
 
 
-# In[ ]:
-
-
-
-
-
-# In[5]:
 
 
 # Read the CSV file into a DataFrame
@@ -185,19 +161,16 @@ commits = commits.astype({'date': 'category', 'time': 'category', 'day_count':'i
 commits['avg_commits'] = commits['commits'] / commits['day_count']
 commits['avg_commits'] = commits['avg_commits'].fillna(0)
 
+
 commits.to_csv('commits_by_date_processed.csv', index=False)
 
 # commits.to_csv('commits_by_date_processed.csv', index=False)
 
 
 
-# In[6]:
 
 
 commits.to_csv('commits_by_date_processed.csv', index=False)
-
-
-# In[7]:
 
 
 commits['avg_commits'] = commits['avg_commits'].astype(float)
@@ -211,27 +184,10 @@ commits = commits.sort_values(['date', 'time'])
 commits.to_csv('commits_by_date_processed.csv', index=False)
 
 
-# # Plotting data
-
-# In[8]:
+commits = commits.groupby(['date', 'time'], as_index=False).agg({'commits': 'sum'})
 
 
-commits = commits.groupby(['date', 'time'], as_index=False).agg({'avg_commits': 'mean'})
-
-
-# In[9]:
-
-
-commits = commits.pivot(index='date', columns='time', values='avg_commits').fillna(0).astype(float)
-
-
-# In[10]:
-
-
-commits
-
-
-# In[ ]:
+commits = commits.pivot(index='date', columns='time', values='commits').fillna(0).astype(float)
 
 
 import matplotlib.pyplot as plt
@@ -248,7 +204,7 @@ plt.ylabel('Day of Week', fontsize=12, labelpad=10)
 sns.heatmap(
     commits,
     annot=True,
-    fmt=".1f",
+    fmt=".0f",
     cmap="YlGnBu",
     linewidths=0.5,
     linecolor='none',
@@ -265,9 +221,3 @@ sns.heatmap(
 plt.tight_layout()
 plt.savefig('commit_heatmap.png', dpi=300, bbox_inches='tight')
 plt.show()
-
-
-# In[ ]:
-
-
-
